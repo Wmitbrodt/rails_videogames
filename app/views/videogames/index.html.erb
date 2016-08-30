@@ -15,6 +15,7 @@
   <tbody>
     <% @videogames.each do |videogame| %>
       <tr>
+        <td><%= image_tag videogame.image.url(:medium) %></td>
         <td><%= videogame.title %></td>
         <td><%= videogame.description %></td>
         <td><%= videogame.videogame_difficulty %></td>

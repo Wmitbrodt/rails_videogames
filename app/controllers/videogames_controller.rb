@@ -70,6 +70,6 @@ class VideogamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def videogame_params
-      params.require(:videogame).permit(:title, :description, :videogame_difficulty, :publisher, :rating)
+      params.require(:videogame).permit(:title, :description, :videogame_difficulty, :publisher, :rating, :image)
     end
 end

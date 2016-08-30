@@ -1,4 +1,4 @@
-<%= form_for(videogame) do |f| %>
+<%= form_for @videogame, html: { multipart: true } do |f| %>
   <% if videogame.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(videogame.errors.count, "error") %> prohibited this videogame from being saved:</h2>
@@ -34,6 +34,11 @@
   <div class="field">
     <%= f.label :rating %>
     <%= f.text_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">
