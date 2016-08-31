@@ -1,31 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @videogame.image.url(:medium) %>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                  <td><strong>Title:</strong></td>
+                  <td><%= @videogame.title %></td>
+              </tr>
+              <tr>
+                <td><strong>Description:</strong></td>
+                <td><%= @videogame.description %></td>
+              </tr>
+              <tr>
+                <td><strong>Videogame difficulty:</strong></td>
+                <td><%= @videogame.videogame_difficulty %></td>
+              </tr>
+              <tr>
+                <td><strong>Publisher:</strong></td>
+                <td><%= @videogame.publisher %></td>
+              </tr>
+              <tr>
+                <td><strong>Rating:</strong></td>
+                <td><%= @videogame.rating %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <%= image_tag @videogame.image.url(:medium) %>
-
-
-<p>
-  <strong>Title:</strong>
-  <%= @videogame.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @videogame.description %>
-</p>
-
-<p>
-  <strong>Videogame difficulty:</strong>
-  <%= @videogame.videogame_difficulty %>
-</p>
-
-<p>
-  <strong>Publisher:</strong>
-  <%= @videogame.publisher %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @videogame.rating %>
-</p>
 
 <%= link_to 'Edit', edit_videogame_path(@videogame) %> |
 <%= link_to 'Back', videogames_path %>
