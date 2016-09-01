@@ -1,16 +1,16 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_videogame
 
   # GET /reviews
   # GET /reviews.json
-  def index
-    @reviews = Review.all
+  def index # we don't actually have an index, so we can leave this blank
   end
 
   # GET /reviews/1
   # GET /reviews/1.json
-  def show
+  def show # we don't actually have a show, so we can leave this blank
   end
 
   # GET /reviews/new
@@ -27,11 +27,12 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id # when user writes new review, their id gets associated with that review
+    @review.videogame_id = @videogame.id # each new review created with be associated with a @videogame.id
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
+        format.html { redirect_to @videogame, notice: 'Review was successfully created.' }
+        format.json { render :show, status: :created, location: @videogame }
       else
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
@@ -67,6 +68,10 @@ class ReviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def set_videogame
+      @videogame = Videogame.find(params[:videogame_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

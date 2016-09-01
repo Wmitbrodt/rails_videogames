@@ -2,7 +2,9 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-4">
-        <%= image_tag @videogame.image.url(:medium) %>
+        <%= image_tag @videogame.image.url(:medium) %> <br/>
+        <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+        <em><%= "#{@reviews.length} reviews" %></em> <br/>
         <div class="table-responsive">
           <table class="table">
             <tbody>
@@ -28,12 +30,42 @@
               </tr>
             </tbody>
           </table>
+          <%= link_to "Write your own Review", new_videogame_review_path(@videogame) %>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @videogame.title %></h1>
+        <h4><%= @videogame.description %></h4>
+
+        <% if @reviews.blank? %>
+          <h3>There are no reviews yet - add the first?</h3>
+          <%= link_to "Write Review", new_videogame_review_path(@videogame), class: "btn btn-danger" %>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p><%= review.comment %></p>
+            </div>
+          <% end %>
+        <% end %>
+
+
+      </div>
+    </div> <!-- row -->
+  </div> <!-- panel-body -->
+</div> <!-- panel-default -->
 
 
 <%= link_to 'Edit', edit_videogame_path(@videogame) %> |
 <%= link_to 'Back', videogames_path %>
+
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
