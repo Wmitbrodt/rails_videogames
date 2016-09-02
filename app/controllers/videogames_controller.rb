@@ -1,6 +1,15 @@
 class VideogamesController < ApplicationController
   before_action :set_videogame, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  
+  
+  def search 
+    if params[:search].present? # if the params user search is present
+      @videogames = Videogame.search(params[:search]) # display related search params
+    else 
+      @videogames = Videogame.all # otherwise just display all the games
+    end
+  end
 
   # GET /videogames
   # GET /videogames.json

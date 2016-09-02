@@ -1,0 +1,9 @@
+<div class="row">
+  <% @videogames.each do |videogame| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+      	<%= link_to (image_tag videogame.image.url(:medium), class: 'image'), videogame %>
+      </div>
+    </div>
+  <% end %>
+</div> <!-- row -->
