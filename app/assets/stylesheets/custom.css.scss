@@ -39,6 +39,14 @@ body {
     border-color: #e7e7e7;
 }
 
+.navbar-default .navbar-nav > li > a {
+    color: #3fa8c6;
+    @include transition(all 0.5s ease-in-out);
+      &:hover {
+        color: #ff9ab2;
+      }
+}
+
 .navbar-default .navbar-brand {
     font-family: 'Audiowide', cursive;
     color: #ff9ab2;
@@ -96,6 +104,17 @@ p {
      &:hover {
        background-color: #ff9ab2;
        border: 1px solid #ff678b;
+       color: #fff;
+      
+     }
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #ff9ab2;
+    @include transition(all 0.4s ease-in-out);
+     &:hover {
+       background-color: #3fa8c6;
        color: #fff;
       
      }

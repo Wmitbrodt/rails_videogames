@@ -30,7 +30,11 @@
               </tr>
             </tbody>
           </table>
-          <%= link_to "Write your own Review", new_videogame_review_path(@videogame) %>
+          <%= link_to "Write your own Review", new_videogame_review_path(@videogame), class: "btn btn-success" %> <br><br>
+
+          <%= link_to 'Edit', edit_videogame_path(@videogame), class: "btn btn-primary" %> |
+          <%= link_to 'Back', videogames_path, class: "btn btn-primary" %>
+
         </div>
       </div>
       <div class="col-md-7 col-md-offset-1">
@@ -39,7 +43,7 @@
 
         <% if @reviews.blank? %>
           <h3>There are no reviews yet - add the first?</h3>
-          <%= link_to "Write Review", new_videogame_review_path(@videogame), class: "btn btn-danger" %>
+          <%= link_to "Write Review", new_videogame_review_path(@videogame), class: "btn btn-success" %>
         <% else %>
           <% @reviews.each do |review| %>
             <div class="reviews">
@@ -56,8 +60,6 @@
 </div> <!-- panel-default -->
 
 
-<%= link_to 'Edit', edit_videogame_path(@videogame) %> |
-<%= link_to 'Back', videogames_path %>
 
 
 <script>
