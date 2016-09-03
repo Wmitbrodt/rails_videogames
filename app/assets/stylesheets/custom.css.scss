@@ -22,6 +22,20 @@
   box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
 }
 
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-size: cover!important;
+}
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
 body {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3ff8c6), color-stop(0%,#3fa8c6), color-stop(100%,#399ab2));
   background: -webkit-linear-gradient(top, #3fa8c6 0%,#3fa8c6 0%,#ff9ab2 100%);
@@ -30,10 +44,7 @@ body {
   background: -o-gradient(linear, left top, left bottom, color-stop(0%,#3ff8c6), color-stop(0%,#3fa8c6), color-stop(100%,#399ab2));
   background: -o-linear-gradient(top, #3fa8c6 0%,#3fa8c6 0%,#ff9ab2 100%);
   background: -ms-gradient(linear, left top, left bottom, color-stop(0%,#3ff8c6), color-stop(0%,#3fa8c6), color-stop(100%,#399ab2));
-  background: -ms-linear-gradient(top, #3fa8c6 0%,#3fa8c6 0%,#ff9ab2 100%);
-  width: 100%;
-  height: 100%;
-  background-size: cover!important;
+  background: -ms-linear-gradient(top, #3fa8c6 0%,#3fa8c6 0%,#ff9ab2 100%);  
 }
 
 .navbar-default {
@@ -134,7 +145,7 @@ p {
   }
  }
 
- .alert {
+ .alert-danger {
     padding: 10px 28px 10px 28px;
     margin-bottom: 20px;
     border: 1px solid #ff9ab2;

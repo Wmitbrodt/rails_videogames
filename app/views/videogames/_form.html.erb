@@ -1,7 +1,8 @@
 <%= form_for @videogame, html: { multipart: true } do |f| %>
   <% if videogame.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(videogame.errors.count, "error") %> prohibited this videogame from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4><%= pluralize(videogame.errors.count, "error") %> prohibited this videogame from being saved:</h4>
 
       <ul>
       <% videogame.errors.full_messages.each do |message| %>
@@ -13,27 +14,27 @@
 
   <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, class: "form-control", placeholder: "e.g. Super Mario Bros." %>
   </div>
 
   <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, class: "form-control input-lg" %>
+    <%= f.text_area :description, class: "form-control input-lg", placeholder: "..." %>
   </div>
 
   <div class="form-group">
     <%= f.label :videogame_difficulty %>
-    <%= f.text_field :videogame_difficulty, class: "form-control" %>
+    <%= f.text_field :videogame_difficulty, class: "form-control", placeholder: "e.g. easy, average, hard, difficult" %>
   </div>
 
   <div class="form-group">
     <%= f.label :publisher %>
-    <%= f.text_field :publisher, class: "form-control" %>
+    <%= f.text_field :publisher, class: "form-control", placeholder: "e.g. Company that created the game" %>
   </div>
 
   <div class="form-group">
     <%= f.label :rating %>
-    <%= f.text_field :rating, class: "form-control" %>
+    <%= f.text_field :rating, class: "form-control", placeholder: "e.g. Everyone, Teen, Mature, Adults Only, etc.." %>
   </div>
 
   <div class="form-group">
