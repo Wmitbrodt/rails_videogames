@@ -7,6 +7,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+$main-color: #ff9ab2;
 
 @mixin transition($x) {
   -webkit-transition: $x;
@@ -56,13 +57,13 @@ body {
     color: #3fa8c6;
     @include transition(all 0.5s ease-in-out);
       &:hover {
-        color: #ff9ab2;
+        color: $main-color;
       }
 }
 
 .navbar-default .navbar-brand {
     font-family: 'Audiowide', cursive;
-    color: #ff9ab2;
+    color: $main-color;
     @include transition(all 0.5s ease-in-out);
     &:hover {
       color: #3fa8c6;
@@ -115,7 +116,7 @@ p {
     background-color: #3fa8c6;
     @include transition(all 0.4s ease-in-out);
      &:hover {
-       background-color: #ff9ab2;
+       background-color: $main-color;
        border: 1px solid #ff678b;
        color: #fff;
       
@@ -124,7 +125,7 @@ p {
 
 .btn-success {
     color: #fff;
-    background-color: #ff9ab2;
+    background-color: $main-color;
     @include transition(all 0.4s ease-in-out);
      &:hover {
        background-color: #3fa8c6;
@@ -148,7 +149,41 @@ p {
  .alert-danger, alert-success, .alert {
     padding: 10px 28px 10px 28px;
     margin-bottom: 20px;
-    border: 1px solid #ff9ab2;
+    border: 1px solid $main-color;
     border-radius: 4px;
-    background: #ff9ab2;
+    background: $main-color;
+}
+
+ 
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+    color: #3fa8c6;
+    background-color: #ffe8ee;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    background-color: #3fa8c6;
+    border-color: #3fa8c6;
+    cursor: default;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #3fa8c6;
+    background-color: #ffe8ee;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+}
+
+.pagination > li > a:hover {
+  background-color: $main-color;
+  border-color: $main-color;
 }
