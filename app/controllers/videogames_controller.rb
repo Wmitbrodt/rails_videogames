@@ -1,6 +1,7 @@
 class VideogamesController < ApplicationController
   before_action :set_videogame, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :check_user, except: [:index, :show, :search]
   
   
   def search 
@@ -84,8 +85,15 @@ class VideogamesController < ApplicationController
       @videogame = Videogame.find(params[:id])
     end
 
+    def check_user 
+      unless current_user.admin?
+        redirect_to root_url, alert: "Sorry, only admins can do that"
+      end
+    end
+        
     # Never trust parameters from the scary internet, only allow the white list through.
     def videogame_params
       params.require(:videogame).permit(:title, :description, :videogame_difficulty, :publisher, :rating, :image)
     end
+
 end

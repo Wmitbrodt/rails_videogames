@@ -32,7 +32,13 @@
           </table>
           <%= link_to "Write your own Review", new_videogame_review_path(@videogame), class: "btn btn-success" %> <br><br>
 
-          <%= link_to 'Edit', edit_videogame_path(@videogame), class: "btn btn-primary" %> |
+          <% if user_signed_in? %>
+            <% if (@videogame.user == current_user) || (current_user.admin?) %>
+              <%= link_to 'Edit Game', edit_videogame_path(@videogame), class: "btn btn-primary" %>
+              <%= link_to "Delete Game", videogame_path(@videogame), method: :delete, class: "btn btn-danger" %>
+            <% end %>
+          <% end %>
+
           <%= link_to 'Back', videogames_path, class: "btn btn-primary" %>
 
         </div>
@@ -58,6 +64,13 @@
             <div class="reviews">
               <div class="star-rating" data-score= <%= review.rating %> ></div>
               <p><%= review.comment %></p>
+
+              <% if user_signed_in? %>
+                <% if (review.user == current_user) || (current_user.admin?) %>
+                  <%= link_to "Edit", edit_videogame_review_path(@videogame, review) %>
+                  <%= link_to "Delete", videogame_review_path(@videogame, review), method: :delete %>
+                <% end %>
+              <% end %>
             </div>
           <% end %>
         <% end %>

@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :set_videogame
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /reviews
   # GET /reviews.json
@@ -59,7 +60,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to videogame_path(@videogame), notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +74,13 @@ class ReviewsController < ApplicationController
     def set_videogame
       @videogame = Videogame.find(params[:videogame_id])
     end
+
+    def check_user  
+      unless (@review.user == current_user) || (current_user.admin?)  # Users can only delete, edit their OWN reviews
+        redirect_to root_url, alert: "Sorry, this review belongs to someone else!"
+      end
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
