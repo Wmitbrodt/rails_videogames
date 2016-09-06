@@ -15,7 +15,7 @@ class VideogamesController < ApplicationController
   # GET /videogames
   # GET /videogames.json
   def index
-    @videogames = Videogame.all.paginate(:page => params[:page], :per_page => 5)
+    @videogames = Videogame.all.paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /videogames/1
