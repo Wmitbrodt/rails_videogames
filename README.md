@@ -1,6 +1,6 @@
 # Rails Retro Video Game Reviews  🕹
 
-[![N|Solid](https://lh3.googleusercontent.com/-tZr93zs2IkI/WO2WeTR8GlI/AAAAAAAADlc/JeJau8tvE_0RB1zHTt3oWx6_uID4mlrrQCJoC/w1060-h662-p-rw/retro-video-games.png)](https://www.linkedin.com/in/willmitbrodt/)
+[![N|Solid](https://lh3.googleusercontent.com/-tZr93zs2IkI/WO2WeTR8GlI/AAAAAAAADlc/JeJau8tvE_0RB1zHTt3oWx6_uID4mlrrQCJoC/w1060-h662-p-rw/retro-video-games.png)](https://wills-videogames.herokuapp.com/)
 
 Retro Video Game Reviews is a Ruby on Rails C.R.U.D. application.
 
