@@ -1,17 +1,17 @@
-# Rails Retro Video Game Reviews
+# Rails Retro Video Game Reviews  🕹
 
 [![N|Solid](https://lh3.googleusercontent.com/-tZr93zs2IkI/WO2WeTR8GlI/AAAAAAAADlc/JeJau8tvE_0RB1zHTt3oWx6_uID4mlrrQCJoC/w1060-h662-p-rw/retro-video-games.png)](https://www.linkedin.com/in/willmitbrodt/)
 
 Retro Video Game Reviews is a Ruby on Rails C.R.U.D. application.
 
-# Features
+# Features 👾
 
   - The ability to search. 
   - File uploads with paperclip.
   - Create reviews with one to many associations.
   - User authentication with devise.
   
-### Tech
+### Tech 📼
 
 Retro Video Games uses a number of open source projects:
 
